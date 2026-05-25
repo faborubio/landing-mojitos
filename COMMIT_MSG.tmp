@@ -1,13 +1,12 @@
-feat: section menu (carrusel) + fixes de fuente y layouts
+fix(responsive): mejorar experiencia mobile en todas las secciones
 
-- Nueva SectionMenu: carrusel de 4 cocteles con tabs, navegacion prev/next,
-  imagen central animada (xPercent slide-in), recetas con titulo + descripcion
-  - Usa Angular signals + computed para estado del carrusel
-  - effect() triggea la animacion GSAP al cambiar de cocktel
-  - Slider leaves decorativas + flechas de navegacion
-  - Mobile: botones circulares prev/next debajo del cocktail
-- SectionArt: cup-2.png a la izq y drink4.png a la der como drinks decorativos,
-  bartender image mas ancha (col-span-8) y mejor proporcion
-- Unicode-range en Modern Negra para que las comas y puntuacion caigan al
-  fallback Playfair Display (evita glyphs rotos)
-- SectionAbout: spans del titulo con inline-block + mr-3 para separar palabras
+- Hero: MOJITO sube a text-[30vw] mobile, textos centrados, bottom-8 mobile
+- NavBar: padding y logo reducidos en mobile (h-6, text-2xl)
+- Cocktails: tipografias mas pequenas (text-xl, text-xs) y spacing reducido en mobile
+- About: titulos compactos (text-4xl), imagenes h-56 en mobile (vs h-72 desktop),
+  rounded-2xl en mobile, badge mas pequeno
+- Art: deshabilitar pin animation en mobile, fade-in simple en su lugar.
+  Titulo "El Arte" text-7xl en mobile, listas con texto xs, image h-40vh,
+  titulos finales reducidos (text-2xl/3xl mobile)
+- Menu: tabs text-base mobile, image max-h-35vh, receta titulos mas pequenos,
+  spacing reducido entre secciones

@@ -45,12 +45,33 @@ export class SectionArt implements AfterViewInit {
     const root = this.sectionRoot.nativeElement;
 
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    const start = isMobile ? 'top 20%' : 'top top';
+
+    if (isMobile) {
+      gsap.from(root.querySelectorAll('[data-anim="will-fade"]'), {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: root, start: 'top 80%' },
+      });
+
+      gsap.from(root.querySelector('[data-anim="masked-img"]'), {
+        opacity: 0,
+        scale: 0.95,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: root, start: 'top 70%' },
+      });
+
+      ScrollTrigger.refresh();
+      return;
+    }
 
     gsap.timeline({
       scrollTrigger: {
         trigger: root,
-        start,
+        start: 'top top',
         end: 'bottom center',
         scrub: 1.5,
         pin: true,

@@ -1,7 +1,7 @@
 <section
   #sectionRoot
   id="arte"
-  class="relative min-h-screen w-full mt-20 p-5 art-radial overflow-hidden"
+  class="relative min-h-screen w-full mt-12 md:mt-20 p-4 md:p-5 art-radial overflow-hidden"
 >
   <img
     data-anim="side-drink"
@@ -18,26 +18,26 @@
     class="hidden md:block absolute right-4 lg:right-10 top-[55%] w-32 lg:w-44 xl:w-56 pointer-events-none select-none z-30 opacity-0"
   />
 
-  <div class="container mx-auto h-full pt-8 w-full relative">
+  <div class="container mx-auto h-full pt-4 md:pt-8 w-full relative">
     <h2
       data-anim="will-fade"
-      class="relative md:text-[20vw] text-8xl text-nowrap leading-none font-modern text-center -mb-24 md:-mb-48 lg:-mb-64 z-0"
+      class="relative text-7xl md:text-[20vw] text-nowrap leading-none font-modern text-center -mb-12 md:-mb-48 lg:-mb-64 z-0"
       style="color: #505050;"
     >
       El Arte
     </h2>
 
     <div class="content grid grid-cols-1 md:grid-cols-12 items-center gap-4 md:gap-2 relative z-10">
-      <ul data-anim="will-fade" class="md:col-span-2 space-y-4 order-2 md:order-1">
+      <ul data-anim="will-fade" class="md:col-span-2 space-y-3 md:space-y-4 order-2 md:order-1">
         @for (item of goodList(); track item) {
           <li class="flex items-center gap-3">
-            <img src="/images/check.png" alt="" class="w-5 h-5 shrink-0" />
-            <p class="text-sm md:text-base text-bone">{{ item }}</p>
+            <img src="/images/check.png" alt="" class="w-4 h-4 md:w-5 md:h-5 shrink-0" />
+            <p class="text-xs md:text-base text-bone">{{ item }}</p>
           </li>
         }
       </ul>
 
-      <div class="cocktail-img md:col-span-8 order-1 md:order-2 relative w-full h-[50vh] md:h-[68vh] rounded-3xl overflow-hidden">
+      <div class="cocktail-img md:col-span-8 order-1 md:order-2 relative w-full h-[40vh] md:h-[68vh] rounded-2xl md:rounded-3xl overflow-hidden">
         <img
           data-anim="masked-img"
           src="/images/under-img.jpg"
@@ -46,20 +46,20 @@
         />
       </div>
 
-      <ul data-anim="will-fade" class="md:col-span-2 space-y-4 order-3">
+      <ul data-anim="will-fade" class="md:col-span-2 space-y-3 md:space-y-4 order-3">
         @for (item of featureList(); track item) {
           <li class="flex items-center gap-3">
-            <img src="/images/check.png" alt="" class="w-5 h-5 shrink-0" />
-            <p class="text-sm md:text-base text-bone">{{ item }}</p>
+            <img src="/images/check.png" alt="" class="w-4 h-4 md:w-5 md:h-5 shrink-0" />
+            <p class="text-xs md:text-base text-bone">{{ item }}</p>
           </li>
         }
       </ul>
     </div>
 
-    <div class="masked-container relative text-center mt-10 min-h-[180px]">
+    <div class="masked-container relative text-center mt-8 md:mt-10 min-h-[140px] md:min-h-[180px]">
       <h2
         data-anim="will-fade"
-        class="font-modern text-gold text-5xl md:text-6xl"
+        class="font-modern text-gold text-3xl md:text-6xl"
       >
         Perfección en cada sorbo
       </h2>
@@ -68,10 +68,10 @@
         data-anim="masked-content"
         class="absolute inset-0 flex flex-col items-center justify-center opacity-0 px-4"
       >
-        <h3 class="font-modern text-bone text-4xl md:text-5xl mb-3">
+        <h3 class="font-modern text-bone text-2xl md:text-5xl mb-2 md:mb-3">
           Hecho con oficio, servido con pasión
         </h3>
-        <p class="text-bone/85 text-base md:text-lg max-w-2xl mx-auto">
+        <p class="text-bone/85 text-sm md:text-lg max-w-2xl mx-auto">
           Esto no es solo una bebida. Es un momento cuidadosamente creado solo
           para ti.
         </p>
