@@ -31,17 +31,17 @@ export class SectionCocktails implements AfterViewInit {
   @ViewChild('sectionRoot', { static: true }) sectionRoot!: ElementRef<HTMLElement>;
 
   protected readonly cocktails = signal<DrinkItem[]>([
-    { name: 'Shiraz de Chapel Hill', origin: 'AU', format: 'Botella', price: '$10' },
-    { name: 'Malbec Catena', origin: 'AR', format: 'Botella', price: '$49' },
-    { name: 'Cerveza Pale Ale Rhino', origin: 'CA', format: '750 ml', price: '$20' },
-    { name: 'Guinness Irlandesa', origin: 'IE', format: '600 ml', price: '$29' },
+    { name: 'Shiraz de Chapel Hill', origin: 'AU', format: 'Botella', price: '$10.000' },
+    { name: 'Malbec Catena', origin: 'AR', format: 'Botella', price: '$49.000' },
+    { name: 'Cerveza Pale Ale Rhino', origin: 'CA', format: '750 ml', price: '$20.000' },
+    { name: 'Guinness Irlandesa', origin: 'IE', format: '600 ml', price: '$29.000' },
   ]);
 
   protected readonly mocktails = signal<DrinkItem[]>([
-    { name: 'Brisa Tropical', origin: 'US', format: 'Botella', price: '$10' },
-    { name: 'Maracuyá Mentolada', origin: 'US', format: 'Botella', price: '$49' },
-    { name: 'Aurora Cítrica', origin: 'CA', format: '750 ml', price: '$20' },
-    { name: 'Lavanda Burbujeante', origin: 'IE', format: '600 ml', price: '$29' },
+    { name: 'Brisa Tropical', origin: 'US', format: 'Botella', price: '$10.000' },
+    { name: 'Maracuyá Mentolada', origin: 'US', format: 'Botella', price: '$49.000' },
+    { name: 'Aurora Cítrica', origin: 'CA', format: '750 ml', price: '$20.000' },
+    { name: 'Lavanda Burbujeante', origin: 'IE', format: '600 ml', price: '$29.000' },
   ]);
 
   ngAfterViewInit(): void {
@@ -50,6 +50,17 @@ export class SectionCocktails implements AfterViewInit {
     const gsap = this.animations.gsap;
     const ScrollTrigger = this.animations.ScrollTrigger;
     const root = this.sectionRoot.nativeElement;
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: root,
+        start: 'top 30%',
+        end: 'bottom 80%',
+        scrub: true,
+      },
+    })
+      .from(root.querySelector('[data-anim="c-leaf-left"]'), { x: -100, y: 100 })
+      .from(root.querySelector('[data-anim="c-leaf-right"]'), { x: 100, y: 100 });
 
     gsap.from(root.querySelectorAll('[data-anim="column"]'), {
       opacity: 0,

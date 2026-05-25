@@ -1,0 +1,16 @@
+feat: refactor Hero + add About/Art sections con animaciones GSAP
+
+- Hero refactor: video output.mp4 con position fixed compartido, mix-blend-mode screen,
+  scrub + pin con ScrollTrigger, mask gradient para ocultar el hielo flotante del top
+- Parallax de hojas Hero (left/right) durante el scroll
+- Navbar fixed con background noise + overlay oscuro
+- Section Cocktails: layout flex con listas a los extremos sin container,
+  hojas cocktail-leaf con parallax, precios en CLP ($10.000), nombres traducidos
+- Section About (Nosotros): grid con badge, titulo split-words, descripcion + rating,
+  galeria de imagenes abt1-5 en dos rows con animacion fade-in
+- Section Art (El Arte): efecto masked image scroll-driven con pin, fade-out
+  de listas/titulos, mask reveal del bartender, fade-in de drinks decorativos
+  y texto final "Hecho con oficio, servido con pasion"
+- Modern Negra ahora tiene fallback a Playfair Display para caracteres faltantes
+  (comas, acentos)
+- Disable scroll restoration al cargar la pagina

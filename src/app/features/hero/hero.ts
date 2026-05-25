@@ -7,13 +7,12 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { NavBar } from '../../shared/components/nav-bar/nav-bar';
 import { AnimationService } from '../../core/services/animation.service';
 
 @Component({
   selector: 'vp-hero',
   standalone: true,
-  imports: [NavBar],
+  imports: [],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
@@ -28,6 +27,7 @@ export class Hero implements AfterViewInit {
     if (!isPlatformBrowser(this.platformId)) return;
 
     this.runIntroTimeline();
+    this.runHeroParallax();
     this.setupVideoBehavior();
   }
 
@@ -35,30 +35,32 @@ export class Hero implements AfterViewInit {
     const gsap = this.animations.gsap;
     const root = this.heroRoot.nativeElement;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
-    tl.from(root.querySelectorAll('[data-anim="leaf"]'), {
-      opacity: 0,
-      scale: 0.7,
-      rotate: -20,
-      stagger: 0.15,
-      duration: 1.1,
+    tl.from(
+      root.querySelector('[data-anim="title"]'),
+      { yPercent: 100, opacity: 0, duration: 1.8 },
+    ).from(
+      root.querySelectorAll('[data-anim="text-block"]'),
+      { yPercent: 100, opacity: 0, stagger: 0.1, duration: 1.4 },
+      '-=1.2',
+    );
+  }
+
+  private runHeroParallax(): void {
+    const gsap = this.animations.gsap;
+    const root = this.heroRoot.nativeElement;
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: root,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
     })
-      .from(
-        root.querySelector('[data-anim="title"]'),
-        { y: 80, opacity: 0, duration: 1.2 },
-        '-=0.6',
-      )
-      .from(
-        root.querySelectorAll('[data-anim="text-block"]'),
-        { y: 40, opacity: 0, stagger: 0.15, duration: 0.8 },
-        '-=0.6',
-      )
-      .from(
-        root.querySelector('[data-anim="scroll-cue"]'),
-        { opacity: 0, duration: 0.6 },
-        '-=0.2',
-      );
+      .to(root.querySelector('[data-anim="leaf-right"]'), { y: 200 }, 0)
+      .to(root.querySelector('[data-anim="leaf-left"]'), { y: -200 }, 0);
   }
 
   private setupVideoBehavior(): void {
@@ -67,7 +69,7 @@ export class Hero implements AfterViewInit {
     const start = () => {
       video.pause();
       video.currentTime = 0;
-      this.bindAllScrolls(video);
+      this.bindVideoScrub(video);
     };
 
     if (video.readyState >= 1 && !Number.isNaN(video.duration)) {
@@ -77,43 +79,25 @@ export class Hero implements AfterViewInit {
     }
   }
 
-  private bindAllScrolls(video: HTMLVideoElement): void {
+  private bindVideoScrub(video: HTMLVideoElement): void {
     const gsap = this.animations.gsap;
     const ScrollTrigger = this.animations.ScrollTrigger;
-    const hero = this.heroRoot.nativeElement;
 
-    gsap.to(video, {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const startValue = isMobile ? 'top 50%' : 'center 60%';
+    const endValue = isMobile ? '120% top' : 'bottom top';
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: video,
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true,
+      },
+    }).to(video, {
       currentTime: video.duration,
       ease: 'none',
-      scrollTrigger: {
-        trigger: hero,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.6,
-      },
-    });
-
-    gsap.to(hero.querySelector('[data-anim="hero-bottom"]'), {
-      opacity: 0,
-      y: -30,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: hero,
-        start: 'top top',
-        end: 'bottom 40%',
-        scrub: 0.5,
-      },
-    });
-
-    gsap.to(video, {
-      opacity: 0,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '#cocteles',
-        start: 'bottom 60%',
-        end: 'bottom 10%',
-        scrub: 0.5,
-      },
     });
 
     ScrollTrigger.refresh();

@@ -19,8 +19,8 @@ module.exports = {
       fontFamily: {
         serif: ["'Playfair Display'", "Georgia", "serif"],
         sans: ["'Inter'", "system-ui", "sans-serif"],
-        script: ["'Modern Negra'", "'Great Vibes'", "cursive"],
-        modern: ["'Modern Negra'", "cursive"],
+        script: ["'Modern Negra'", "'Playfair Display'", "'Great Vibes'", "cursive"],
+        modern: ["'Modern Negra'", "'Playfair Display'", "Georgia", "serif"],
       },
       backgroundImage: {
         noise:
