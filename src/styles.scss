@@ -8,6 +8,8 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  /* Aplicar Modern Negra solo a letras y espacios; puntuación cae al fallback */
+  unicode-range: U+0020, U+0041-005A, U+0061-007A, U+00C0-00FF;
 }
 
 html,
