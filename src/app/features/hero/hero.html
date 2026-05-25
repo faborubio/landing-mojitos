@@ -1,0 +1,82 @@
+<video
+  #heroVideo
+  src="/videos/output.mp4"
+  muted
+  playsinline
+  preload="auto"
+  class="fixed top-0 left-0 w-full h-screen object-cover z-0 pointer-events-none scale-75"
+  style="mix-blend-mode: screen;"
+  aria-hidden="true"
+></video>
+
+<section
+  #heroRoot
+  class="relative h-screen w-full overflow-hidden"
+>
+  <vp-nav-bar />
+
+  <img
+    data-anim="leaf"
+    src="/images/hero-left-leaf.png"
+    alt=""
+    aria-hidden="true"
+    class="absolute top-[32%] left-0 h-44 md:h-64 lg:h-80 w-auto pointer-events-none select-none z-20"
+  />
+
+  <img
+    data-anim="leaf"
+    src="/images/hero-right-leaf.png"
+    alt=""
+    aria-hidden="true"
+    class="absolute top-[12%] right-0 h-44 md:h-64 lg:h-80 w-auto pointer-events-none select-none z-20"
+  />
+
+  <div class="relative z-20 pt-20 md:pt-24 px-6 md:px-12">
+    <h1
+      data-anim="title"
+      class="font-serif text-bone text-[22vw] md:text-[18vw] lg:text-[15rem] xl:text-[18rem] leading-[0.9] tracking-tight text-center select-none drop-shadow-2xl"
+    >
+      MOJITO
+    </h1>
+  </div>
+
+  <div data-anim="hero-bottom" class="absolute bottom-10 md:bottom-14 left-0 right-0 z-20 px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-6xl mx-auto">
+      <div data-anim="text-block" class="text-left">
+        <p class="text-bone/90 uppercase tracking-[0.3em] text-xs md:text-sm mb-3">
+          Fresco · Crujiente · Clásico
+        </p>
+        <h2 class="font-modern text-gold text-5xl md:text-6xl leading-[1.05]">
+          Saborea el Espíritu<br />del Verano
+        </h2>
+      </div>
+
+      <div data-anim="text-block" class="md:text-right md:self-end">
+        <p class="text-bone text-base md:text-lg leading-relaxed max-w-md md:ml-auto">
+          Cada cóctel de nuestra carta es una mezcla de ingredientes premium,
+          creatividad artesanal y recetas atemporales — diseñados para deleitar
+          tus sentidos.
+        </p>
+        <a
+          href="#cocteles"
+          class="inline-flex items-center gap-2 mt-3 text-bone hover:text-gold border-b border-bone hover:border-gold transition-colors pb-1 text-sm uppercase tracking-wide"
+        >
+          Ver cócteles
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#cocteles"
+    data-anim="scroll-cue"
+    class="absolute bottom-4 right-4 md:right-6 z-30 text-bone/90 hover:text-gold transition-colors animate-bounce-slow"
+    aria-label="Desplazarse hacia abajo"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-8" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="12" y1="2" x2="12" y2="34"/>
+      <polyline points="6 28 12 34 18 28"/>
+    </svg>
+  </a>
+</section>

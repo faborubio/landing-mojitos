@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Hero } from './features/hero/hero';
+import { SectionCocktails } from './features/section-cocktails/section-cocktails';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [Hero, SectionCocktails],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
-export class App {
-  protected readonly title = signal('landing-mojitos');
-}
+export class App {}
