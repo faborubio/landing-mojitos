@@ -1,12 +1,10 @@
-fix(responsive): mejorar experiencia mobile en todas las secciones
+chore: deploy a nuevo hosting site mojitos-landing.web.app
 
-- Hero: MOJITO sube a text-[30vw] mobile, textos centrados, bottom-8 mobile
-- NavBar: padding y logo reducidos en mobile (h-6, text-2xl)
-- Cocktails: tipografias mas pequenas (text-xl, text-xs) y spacing reducido en mobile
-- About: titulos compactos (text-4xl), imagenes h-56 en mobile (vs h-72 desktop),
-  rounded-2xl en mobile, badge mas pequeno
-- Art: deshabilitar pin animation en mobile, fade-in simple en su lugar.
-  Titulo "El Arte" text-7xl en mobile, listas con texto xs, image h-40vh,
-  titulos finales reducidos (text-2xl/3xl mobile)
-- Menu: tabs text-base mobile, image max-h-35vh, receta titulos mas pequenos,
-  spacing reducido entre secciones
+- Crear hosting site "mojitos-landing" en el proyecto fabian-portafolio
+  via firebase hosting:sites:create
+- Configurar firebase.json con target "mojitos"
+- Configurar .firebaserc con mapeo target → site (mojitos: mojitos-landing)
+- Preparar setup para multi-site (futuras apps + portafolio en el mismo proyecto)
+
+Deploy con: firebase deploy --only hosting:mojitos
+URL: https://mojitos-landing.web.app

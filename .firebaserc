@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "fabian-portafolio"
+  },
+  "targets": {
+    "fabian-portafolio": {
+      "hosting": {
+        "mojitos": ["mojitos-landing"]
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "mojitos",
     "public": "dist/landing-mojitos/browser",
     "ignore": [
       "firebase.json",
